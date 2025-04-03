@@ -1,3 +1,21 @@
+Здравствуйте, меня зовут Ярослав. Это мой Todo list!
+
+Что бы запустить это приложение разработанное на React и собранное с помощью Vite, нужно запускать с помощью " npm run start "
+
+
+Пожалуйста не судите строго, с тестами у меня небольшой опыт, а так-же опыт работы у меня не большой (на данный момент)
+
+Приложение было разработанно с помощью библиотек: React, chakra-ui, jest
+
+Использовался язык Ts
+
+
+
+
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
