@@ -1,0 +1,11 @@
+@use '/src/styles/_mixins' as *;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    @include fontSize(24);
+    @include mediaFontSize(12);
+}
+body{
+    width: 100%;
+}
