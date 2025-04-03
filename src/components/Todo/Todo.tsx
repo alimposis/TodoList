@@ -1,4 +1,4 @@
-import { Box, Checkbox, CloseButton, Code, Flex, Stack, Text } from "@chakra-ui/react";
+import { Checkbox, CloseButton, Stack, Text } from "@chakra-ui/react";
 
 import { ITodo } from "@/models";
 
