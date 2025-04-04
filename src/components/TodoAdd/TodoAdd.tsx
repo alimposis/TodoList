@@ -14,9 +14,9 @@ export const TodoAdd = ({props}:TodoListAddProps) =>{
                 required
                 name="title"
                 padding="1"
-                placeholder="Enter a new task"
+                placeholder="Название задачи"
               />
-              <Input name="term" padding="1" placeholder="Enter a term" />
+              <Input name="term" padding="1" placeholder="Срок задачи" />
               <Button type="submit" padding="0.5" maxW="200px" width="100%">
                 Новая задача
               </Button>

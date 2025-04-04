@@ -33,16 +33,16 @@ export const Main = () => {
           </TabList>
           <TabPanels>
               <TabPanel>
-                <StateTodoList props={[stateTodo, setStateTodo, deleteTodo]} />
+                <StateTodoList props={[stateTodo, setStateTodo, deleteTodo,stateTodo]} />
               </TabPanel>
               <TabPanel >
               <StateTodoList
-                props={[stateTodoTrue, setStateTodo, deleteTodo]}
+                props={[stateTodoTrue, setStateTodo, deleteTodo,stateTodo]}
               />
             </TabPanel>
             <TabPanel>
               <StateTodoList
-                props={[stateTodoFalse, setStateTodo, deleteTodo]}
+                props={[stateTodoFalse, setStateTodo, deleteTodo,stateTodo]}
               />
             </TabPanel>
           </TabPanels>

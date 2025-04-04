@@ -8,13 +8,15 @@ export const StateTodoList = ({
   props: [
     ITodo[] | null,
     React.Dispatch<React.SetStateAction<ITodo[] | []>>,
-    Function
+    Function,
+    [] | ITodo[]
   ];
 }) => {
   const setState = props[1];
+  const stateTodo = props[3];
   const state = props[0];
   function editAnObject(params: ITodo) {
-    const updatedState = state?.map((e) => {
+    const updatedState = stateTodo?.map((e) => {
       if (e.id === params.id) {
         return { ...e, completed: !e.completed };
       }
