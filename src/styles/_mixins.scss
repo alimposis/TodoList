@@ -1,8 +1,0 @@
-@mixin fontSize($desctop) {
-  font-size: calc(($desctop / 1920) * 100vw);
-}
-@mixin mediaFontSize($mobile) {
-    @media (max-width: 850px) {
-        font-size: calc(($mobile / 360) * 100vw);
-    }
-}
