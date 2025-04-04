@@ -9,7 +9,12 @@ import { newTodo } from "@/utils/newTodo";
 import { deleteTodo } from "@/utils/deleteTodo";
 
 export const Main = () => {
-  const [stateTodo, setStateTodo] = useState<[] | ITodo[]>([]);
+  const stateLocalStorage = localStorage.getItem("todos")
+  let formatMassITodo:ITodo[] = []
+  if(stateLocalStorage){
+    formatMassITodo = JSON.parse(stateLocalStorage)
+  }
+  const [stateTodo, setStateTodo] = useState<[] | ITodo[]>(formatMassITodo);
   const [stateTodoTrue, setStateTodoTrue] = useState<[] | ITodo[]>([]);
   const [stateTodoFalse, setStateTodoFalse] = useState<[] | ITodo[]>([]);
 
@@ -18,6 +23,7 @@ export const Main = () => {
   }
   useEffect(() => {
     todoFilter(stateTodo,setStateTodoTrue,setStateTodoFalse)
+    localStorage.setItem("todos",JSON.stringify(stateTodo))
   }, [stateTodo]);
 
   return (
