@@ -4,7 +4,7 @@ import { ITodo } from "@/models";
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import { StateTodoList } from "../StateTodoList/StateTodoList";
 import { TodoAdd } from "../TodoAdd/TodoAdd";
-import { useTodoFilter } from "@/hooks/useTodoFilter";
+import { todoFilter } from "@/utils/todoFilter";
 import { newTodo } from "@/utils/newTodo";
 import { deleteTodo } from "@/utils/deleteTodo";
 
@@ -17,7 +17,7 @@ export const Main = () => {
     newTodo(e,setStateTodo,stateTodo)
   }
   useEffect(() => {
-    useTodoFilter(stateTodo,setStateTodoTrue,setStateTodoFalse)
+    todoFilter(stateTodo,setStateTodoTrue,setStateTodoFalse)
   }, [stateTodo]);
 
   return (

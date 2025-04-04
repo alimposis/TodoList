@@ -1,6 +1,6 @@
 import { ITodo } from "@/models";
 
-export const useTodoFilter = (stateTodo: ITodo[],setStateTodoTrue: React.Dispatch<React.SetStateAction<[] | ITodo[]>>,setStateTodoFalse: React.Dispatch<React.SetStateAction<[] | ITodo[]>>)=>{
+export const todoFilter = (stateTodo: ITodo[],setStateTodoTrue: React.Dispatch<React.SetStateAction<ITodo[] | []>>,setStateTodoFalse: React.Dispatch<React.SetStateAction<ITodo[] | []>>)=>{
     const todosTrue: ITodo[] = [];
     const todosFalse: ITodo[] = [];
     stateTodo.map((e) => {
