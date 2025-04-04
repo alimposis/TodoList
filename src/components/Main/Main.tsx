@@ -11,9 +11,7 @@ import { deleteTodo } from "@/utils/deleteTodo";
 export const Main = () => {
   const stateLocalStorage = localStorage.getItem("todos")
   let formatMassITodo:ITodo[] = []
-  if(stateLocalStorage){
-    formatMassITodo = JSON.parse(stateLocalStorage)
-  }
+  stateLocalStorage ? formatMassITodo = JSON.parse(stateLocalStorage) : null
   const [stateTodo, setStateTodo] = useState<[] | ITodo[]>(formatMassITodo);
   const [stateTodoTrue, setStateTodoTrue] = useState<[] | ITodo[]>([]);
   const [stateTodoFalse, setStateTodoFalse] = useState<[] | ITodo[]>([]);
