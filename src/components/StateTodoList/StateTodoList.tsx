@@ -2,35 +2,16 @@ import { ITodo } from "@/models";
 import { Todo } from "../Todo/Todo";
 import { Heading } from "@chakra-ui/react";
 
-export const StateTodoList = ({
-  props,
-}: {
-  props: [
-    ITodo[] | null,
-    React.Dispatch<React.SetStateAction<ITodo[] | []>>,
-    Function,
-    [] | ITodo[]
-  ];
-}) => {
-  const setState = props[1];
-  const stateTodo = props[3];
-  const state = props[0];
-  function editAnObject(params: ITodo) {
-    const updatedState = stateTodo?.map((e) => {
-      if (e.id === params.id) {
-        return { ...e, completed: !e.completed };
-      }
-      return e;
-    });
-    setState(updatedState!);
-  }
+export const StateTodoList = ({props}: {props: ITodo[] | null}) => {
+  const state = props;
+
   if (state?.length) {
     return (
       <>
         {state.map((e) => {
           return (
             <>
-              <Todo key={e.id} props={[e, editAnObject, props[2], setState, state]} />
+              <Todo key={e.id} props={e} />
             </>
           );
         })}

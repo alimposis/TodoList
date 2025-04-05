@@ -1,23 +1,35 @@
+import { useTodoActions } from "@/Hooks/useTodoActions"
 import { Button, Flex, Input } from "@chakra-ui/react"
+import { useRef, useState } from "react"
 
-interface TodoListAddProps {
-    props: (e: FormData) => void
-}
+export const TodoAdd = () =>{
+    const [stateInputValue, setStateInputValue ] = useState<string>("")
+    
+    const inputRef = useRef<HTMLInputElement | null>(null)
 
-export const TodoAdd = ({props}:TodoListAddProps) =>{
-    const newTodo = props
+    const {newTodo: newTodoActuion} = useTodoActions()
+
+    const focus = () =>  {
+      stateInputValue.length ? null : inputRef.current?.focus
+    }
+    const newTodo = (e: FormData) =>{
+      newTodoActuion(e)
+      setStateInputValue("")
+    }
     return(
         <>
         <form  action={newTodo} >
             <Flex display="flex" gap="1" width="100%">
               <Input
+                value={stateInputValue}
+                onChange={e=>setStateInputValue(e.target.value)}
                 required
                 name="title"
                 padding="1"
                 placeholder="Название задачи"
               />
-              <Input name="term" padding="1" placeholder="Срок задачи" />
-              <Button type="submit" padding="0.5" maxW="200px" width="100%">
+              <Input ref={inputRef} name="term" padding="1" placeholder="Срок задачи" />
+              <Button onClick={focus} type="submit" padding="0.5" maxW="200px" width="100%">
                 Новая задача
               </Button>
             </Flex>
