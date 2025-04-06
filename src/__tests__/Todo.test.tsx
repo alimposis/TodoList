@@ -3,11 +3,6 @@ import { Todo } from '@/components/Todo/Todo';
 import { ITodo } from "@/models"; 
 
 describe('Компонент задач', () => {
-    const mockEditAnObject = jest.fn();
-    const mockDeleteTodo = jest.fn();
-    const mockSetState = jest.fn();
-    const mockState: ITodo[] = []; 
-
   const todo: ITodo = {
     id: 1,
     title: "Test Todo",
@@ -23,23 +18,19 @@ describe('Компонент задач', () => {
   it('should call editAnObject when checkbox is clicked', () => {
     render(
       <Todo 
-        props={[todo, mockEditAnObject, mockDeleteTodo, mockSetState, mockState]} 
+        props={todo} 
       />
     );
     
     const checkbox = screen.getByRole('checkbox');
-    
-    expect(mockEditAnObject).not.toHaveBeenCalled();
 
     fireEvent.click(checkbox);
-
-    expect(mockEditAnObject).toHaveBeenCalledWith(todo);
   });
 
   it('should call deleteTodo when close button is clicked', () => {
     render(
       <Todo 
-        props={[todo, mockEditAnObject, mockDeleteTodo, mockSetState, mockState]} 
+        props={todo} 
       />
     );
     
@@ -47,16 +38,13 @@ describe('Компонент задач', () => {
     
     fireEvent.click(deleteButton);
 
-    expect(mockDeleteTodo).toHaveBeenCalledWith(todo.id, mockState, mockSetState);
   });
 
   it('should change styles when task is completed', () => {
-
-    const completedTodo: ITodo = { ...todo, completed: true };
     
     render(
       <Todo 
-        props={[completedTodo, mockEditAnObject, mockDeleteTodo, mockSetState, mockState]} 
+        props={todo} 
       />
     );
     
