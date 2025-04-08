@@ -16,6 +16,11 @@ export const TodoAdd = () =>{
       newTodoActuion(e)
       setStateInputValue("")
     }
+    const getCurrentDate = () => {
+      const today = new Date();
+      today.setDate(today.getDate()); 
+      return today.toISOString().split('T')[0]; 
+    };
     return(
         <>
         <form  action={newTodo} >
@@ -28,7 +33,7 @@ export const TodoAdd = () =>{
                 padding="1"
                 placeholder="Название задачи"
               />
-              <Input ref={inputRef} name="term" padding="1" placeholder="Срок задачи" />
+              <Input ref={inputRef} name="term" padding="1" placeholder="Срок задачи" size='md' type='datetime-local' min={getCurrentDate() + "T00:00"}/>
               <Button onClick={focus} type="submit" padding="0.5" maxW="200px" width="100%">
                 Новая задача
               </Button>
